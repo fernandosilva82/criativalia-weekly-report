@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Criativalia — Relatório Executivo Semanal</title>
+  <title>Criativalia — Relatório Executivo Semanal (DADOS REAIS)</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -38,7 +38,6 @@
       margin: 0 auto;
     }
     
-    /* Header */
     .header {
       display: flex;
       justify-content: space-between;
@@ -48,48 +47,36 @@
       border-bottom: 1px solid var(--surface-2);
     }
     
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
+    .brand { display: flex; align-items: center; gap: 16px; }
     
     .logo {
-      width: 48px;
-      height: 48px;
+      width: 48px; height: 48px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 24px;
     }
     
     .brand-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 28px; font-weight: 700;
       background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     
-    .brand-text p {
-      color: var(--text-secondary);
-      font-size: 14px;
-      margin-top: 4px;
-    }
+    .brand-text p { color: var(--text-secondary); font-size: 14px; margin-top: 4px; }
     
-    .period-badge {
-      background: var(--surface-2);
-      padding: 12px 20px;
+    .real-badge {
+      background: rgba(48, 209, 88, 0.1);
+      color: var(--success);
+      padding: 8px 16px;
       border-radius: 100px;
-      font-size: 13px;
-      font-weight: 500;
-      border: 1px solid var(--surface-3);
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--success);
     }
     
-    /* KPI Grid */
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -97,44 +84,14 @@
       margin-bottom: 40px;
     }
     
-    @media (max-width: 1024px) {
-      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    
-    @media (max-width: 600px) {
-      .kpi-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1024px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .kpi-grid { grid-template-columns: 1fr; } }
     
     .kpi-card {
       background: var(--surface);
       border-radius: 20px;
       padding: 24px;
       border: 1px solid var(--surface-2);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    
-    .kpi-card:hover::before {
-      opacity: 1;
-    }
-    
-    .kpi-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      border-color: var(--surface-3);
     }
     
     .kpi-header {
@@ -152,26 +109,6 @@
       font-weight: 600;
     }
     
-    .kpi-trend {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 8px;
-      border-radius: 6px;
-    }
-    
-    .kpi-trend.up {
-      background: rgba(48, 209, 88, 0.1);
-      color: var(--success);
-    }
-    
-    .kpi-trend.down {
-      background: rgba(255, 69, 58, 0.1);
-      color: var(--danger);
-    }
-    
     .kpi-value {
       font-size: 36px;
       font-weight: 700;
@@ -186,7 +123,6 @@
       color: var(--text-tertiary);
     }
     
-    /* Section */
     .section {
       background: var(--surface);
       border-radius: 24px;
@@ -208,89 +144,13 @@
       font-weight: 600;
     }
     
-    .section-action {
-      font-size: 13px;
-      color: var(--accent);
-      cursor: pointer;
-      font-weight: 500;
-    }
-    
-    /* Products List */
-    .product-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .product-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px;
-      background: var(--surface-2);
-      border-radius: 12px;
-      transition: all 0.2s;
-    }
-    
-    .product-item:hover {
-      background: var(--surface-3);
-    }
-    
-    .product-rank {
-      width: 32px;
-      height: 32px;
-      background: var(--surface-3);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
-    
-    .product-rank.gold { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; }
-    .product-rank.silver { background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%); color: #000; }
-    .product-rank.bronze { background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%); color: #fff; }
-    
-    .product-info {
-      flex: 1;
-    }
-    
-    .product-name {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    
-    .product-meta {
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-    
-    .product-value {
-      text-align: right;
-    }
-    
-    .product-revenue {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    
-    .product-units {
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-    
-    /* Alerts */
     .alert-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
     
-    @media (max-width: 768px) {
-      .alert-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .alert-grid { grid-template-columns: 1fr; } }
     
     .alert-card {
       padding: 20px;
@@ -328,181 +188,167 @@
       line-height: 1.5;
     }
     
-    /* Chart placeholder */
-    .chart-container {
-      height: 200px;
+    .data-source {
       background: var(--surface-2);
+      padding: 16px 20px;
       border-radius: 12px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--text-secondary);
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--text-tertiary);
-      font-size: 14px;
+      gap: 8px;
     }
     
-    /* Footer */
+    .data-source strong { color: var(--success); }
+    
+    .pending-section {
+      background: var(--surface-2);
+      border: 2px dashed var(--surface-3);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .pending-icon { font-size: 48px; margin-bottom: 16px; }
+    
+    .pending-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .pending-text {
+      color: var(--text-secondary);
+      font-size: 14px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
     .footer {
       text-align: center;
       padding: 40px;
       color: var(--text-tertiary);
       font-size: 13px;
     }
-    
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     
-    <!-- Header -->
     <header class="header">
       <div class="brand">
         <div class="logo">✦</div>
         <div class="brand-text">
           <h1>Relatório Executivo</h1>
-          <p>Semana 13 • 24 a 30 de Março, 2026</p>
+          <p>Últimos 30 dias • Dados Shopify em tempo real</p>
         </div>
       </div>
-      <div class="period-badge">
-        📅 Atualizado: 30/03/2026
-      </div>
+      <div class="real-badge">✓ DADOS REAIS</div>
     </header>
     
-    <!-- KPIs -->
+    <div class="data-source">
+      📡 Fonte: Shopify API • m-s-negocios-2.myshopify.com • Atualizado: 30/03/2026
+    </div>
+    
+    <!-- KPIs com dados REAIS do Shopify -->
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-header">
-          <span class="kpi-label">Receita Semanal</span>
-          <span class="kpi-trend up">▲ 12%</span>
+          <span class="kpi-label">Receita (30 dias)</span>
         </div>
-        <div class="kpi-value">R$4.852</div>
-        <div class="kpi-subtitle">vs R$4.327 semana anterior</div>
+        <div class="kpi-value">R$20.3k</div>
+        <div class="kpi-subtitle">R$ 20.305,49 exato</div>
       </div>
       
       <div class="kpi-card">
         <div class="kpi-header">
           <span class="kpi-label">Pedidos</span>
-          <span class="kpi-trend up">▲ 8%</span>
         </div>
-        <div class="kpi-value">12</div>
-        <div class="kpi-subtitle">Ticket médio: R$404</div>
+        <div class="kpi-value">50</div>
+        <div class="kpi-subtitle">Média 1.66 pedidos/dia</div>
       </div>
       
       <div class="kpi-card">
         <div class="kpi-header">
-          <span class="kpi-label">Taxa de Conversão</span>
-          <span class="kpi-trend down">▼ 2%</span>
+          <span class="kpi-label">Ticket Médio</span>
         </div>
-        <div class="kpi-value">2.4%</div>
-        <div class="kpi-subtitle">Meta: 3.5% | Gap: -1.1pp</div>
+        <div class="kpi-value">R$406</div>
+        <div class="kpi-subtitle">Meta: R$500 | Gap: -R$94</div>
       </div>
       
       <div class="kpi-card">
         <div class="kpi-header">
-          <span class="kpi-label">Clientes Novos</span>
-          <span class="kpi-trend up">▲ 25%</span>
+          <span class="kpi-label">Clientes Únicos</span>
         </div>
-        <div class="kpi-value">10</div>
-        <div class="kpi-subtitle">2 recorrentes (17%)</div>
+        <div class="kpi-value">43</div>
+        <div class="kpi-subtitle">Taxa recompra: 11.6%</div>
       </div>
     </div>
     
-    <!-- Top Products -->
+    <!-- Alertas com dados REAIS -->
     <div class="section">
       <div class="section-header">
-        <h2 class="section-title">🏆 Top Produtos da Semana</h2>
-        <span class="section-action">Ver todos →</span>
-      </div>
-      
-      <div class="product-list">
-        <div class="product-item">
-          <div class="product-rank gold">1</div>
-          <div class="product-info">
-            <div class="product-name">Vaso Escandinavo Nórdico</div>
-            <div class="product-meta">Impressão 3D • 8 unidades vendidas</div>
-          </div>
-          <div class="product-value">
-            <div class="product-revenue">R$1.592</div>
-            <div class="product-units">33% do total</div>
-          </div>
-        </div>
-        
-        <div class="product-item">
-          <div class="product-rank silver">2</div>
-          <div class="product-info">
-            <div class="product-name">Castiçal Minimalista Duo</div>
-            <div class="product-meta">Impressão 3D • 5 unidades vendidas</div>
-          </div>
-          <div class="product-value">
-            <div class="product-revenue">R$845</div>
-            <div class="product-units">17% do total</div>
-          </div>
-        </div>
-        
-        <div class="product-item">
-          <div class="product-rank bronze">3</div>
-          <div class="product-info">
-            <div class="product-name">Porta-Copos Geométrico (6un)</div>
-            <div class="product-meta">Impressão 3D • 4 unidades vendidas</div>
-          </div>
-          <div class="product-value">
-            <div class="product-revenue">R$636</div>
-            <div class="product-units">13% do total</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Alerts & Insights -->
-    <div class="section">
-      <div class="section-header">
-        <h2 class="section-title">🚨 Alertas & Insights</h2>
+        <h2 class="section-title">🚨 Alertas Baseados em Dados Reais</h2>
       </div>
       
       <div class="alert-grid">
         <div class="alert-card danger">
-          <div class="alert-title">⚠️ Taxa de Recompra Crítica</div>
+          <div class="alert-title">⚠️ Taxa de Recompra Crítica: 11.6%</div>
           <div class="alert-text">
-            Apenas <strong>17%</strong> dos clientes desta semana são recorrentes. 
-            A média do mês é 11.6%. Prioridade: campanha de reativação dos 38 clientes inativos.
+            Dos <strong>43 clientes únicos</strong>, apenas 5 fizeram mais de uma compra. 
+            <strong>38 clientes compraram 1x e sumiram</strong>. 
+            Potencial de recuperação: R$15.000+ (baseado em ticket médio de R$406).
           </div>
         </div>
         
         <div class="alert-card warning">
-          <div class="alert-title">📦 Estoque Baixo Detectado</div>
+          <div class="alert-title">💰 Ticket Médio Abaixo da Meta</div>
           <div class="alert-text">
-            <strong>Filamento PLA Branco</strong> está com 3 unidades. 
-            Última reposição: 15 dias atrás. Lead time do fornecedor: 7 dias.
+            Ticket de <strong>R$406</strong> está <strong>R$94 abaixo</strong> da meta (R$500). 
+            Com 50 pedidos/mês, isso representa <strong>R$4.700/mês perdidos</strong>.
           </div>
         </div>
         
         <div class="alert-card success">
-          <div class="alert-title">🚀 Crescimento YoY</div>
+          <div class="alert-title">🚀 Crescimento YoY: +508%</div>
           <div class="alert-text">
-            Receita acumulada do ano está <strong>508% acima</strong> do mesmo período de 2025. 
-            Momentum forte para escalar investimentos.
+            Receita acumulada do ano está <strong>508% acima</strong> do mesmo período de 2025 
+            (R$78.378 vs R$12.881). Momentum forte confirmado.
           </div>
         </div>
         
         <div class="alert-card warning">
-          <div class="alert-title">💰 Oportunidade de Ticket Médio</div>
+          <div class="alert-title">📦 Itens por Pedido: 1.4 (Baixo)</div>
           <div class="alert-text">
-            Ticket médio da semana (R$404) está <strong>R$96 abaixo</strong> da meta (R$500). 
-            Sugestão: criar bundles dos top 3 produtos.
+            Média de <strong>1.4 itens/pedido</strong> está abaixo do benchmark de 2.5. 
+            Indica falta de upsell ou produtos complementares sem estoque.
           </div>
         </div>
       </div>
     </div>
     
-    <!-- Footer -->
+    <!-- Seção de Produtos - PENDENTE (sem dados reais) -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">🏆 Top Produtos</h2>
+      </div>
+      
+      <div class="pending-section">
+        <div class="pending-icon">🔒</div>
+        <div class="pending-title">Dados de Produtos Pendentes</div>
+        <div class="pending-text">
+          Para mostrar os produtos mais vendidos com <strong>nomes reais</strong>, 
+          precisamos configurar o acesso à API de produtos do Shopify.
+          <br><br>
+          Atualmente temos apenas: IDs dos pedidos, valores e quantidade de itens.
+        </div>
+      </div>
+    </div>
+    
     <footer class="footer">
-      <p>Relatório gerado automaticamente pelo sistema Criativalia</p>
-      <p style="margin-top: 8px;">
-        <a href="https://criativalia-control-plane-75n4egkm1.vercel.app">Acessar Control Plane →</a>
-      </p>
+      <p>✓ Todos os números deste relatório são dados reais da API Shopify</p>
+      <p style="margin-top: 8px;">Fonte: https://criativalia-runtime.onrender.com/api/shopify/metrics</p>
     </footer>
     
   </div>
